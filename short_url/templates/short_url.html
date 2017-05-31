@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <div class="short_url_form">
+
+        {% if form %}
+
+            <form action="." method="POST">{% csrf_token %}
+                {{ form.as_p }}
+                <input id="button" type="submit" value="GetShortener"/>
+            </form>
+
+        {% else %}
+
+            <a  id="short_link" href="{{ obj.get_short_url }}" target="_blank">
+                {{ obj.get_short_url }}</a>
+
+            <input id="button" class="to_clipboard" type="submit" value="Copy"
+                   data-clipboard-target="#short_link"/>
+
+        {% endif %}
+
+    </div>
+
+{% endblock %}

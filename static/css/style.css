@@ -1,0 +1,23 @@
+body {
+    background-color: #79aec8;
+    font-family: Arial, sans-serif;
+}
+
+h1 a {
+    text-decoration: none;
+    color: #31638b;
+    text-shadow: 1px 1px 3px;
+}
+
+h1 a:hover {
+    color: #2e6d92;
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -101.5px;
+    margin-left: -330px;
+    text-align: center;
+}

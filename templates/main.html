@@ -1,0 +1,26 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/short_url.css' %}">
+    <title>{{ title }}</title>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <h1><a href="/">{{ title }}</a></h1>
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+
+</html>
