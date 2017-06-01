@@ -10,8 +10,9 @@ from django.urls import reverse
 
 SHORT_CODE_LENGTH = getattr(settings, 'SHORT_CODE_LENGTH', 6)
 HOSTNAME = getattr(settings, 'HOSTNAME', 'localhost')
-PORT = getattr(settings, 'PORT', '8000')
-PROTOCOL = getattr(settings, 'PROTOCOL', 'http')
+port = getattr(settings, 'PORT', '8000')
+PORT = ':' + port if port not in ('80', '443') else ''
+PROTOCOL = 'https' if PORT == '443' else getattr(settings, 'PROTOCOL', 'http')
 
 
 class ShortURLManager(models.Manager):
@@ -46,7 +47,7 @@ class ShortURL(models.Model):
 
     def get_short_url(self):
         path = reverse('short_url', kwargs={'short_code': self.short_code})
-        return '{protocol}://{hostname}:{port}{path}'.format(
+        return '{protocol}://{hostname}{port}{path}'.format(
             protocol=PROTOCOL, hostname=HOSTNAME, port=PORT, path=path
         )
 
