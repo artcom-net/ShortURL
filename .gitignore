@@ -4,4 +4,4 @@ venv
 uwsgi.ini
 uwsgi_params
 db.sqlite3
-short_url/migrations
+short_url/migrations/
