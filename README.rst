@@ -56,7 +56,6 @@ Obtaining short URL
 ~~~~~~~~~~~~~~~~~~~
 
 To get a short URL, send a POST request to */api/shorturl/*, pass the *url* parameter and add the *Authorization* header with the value
-
 *"Token your_token"*. Example:
 
 .. code::
