@@ -13,15 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
-from django.contrib import admin
+from django.conf.urls import url
 
-from short_url.views import MainView, redirect_view
+from .views import UserCreateAPIView
+
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', MainView.as_view()),
-    url(r'^(?P<short_code>\w+)/$', redirect_view, name='short_url'),
-    url(r'^api/shorturl/', include('short_url.api.urls',)),
-    url(r'^api/auth/', include('account.api.urls')),
+    url(r'^gettoken/$', UserCreateAPIView.as_view()),
 ]
